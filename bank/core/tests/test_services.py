@@ -138,7 +138,7 @@ def test_filter_transactions(three_transactions):
 
 
 @pytest.fixture
-def five_transactions_by_period():
+def four_transactions_by_period():
     timezone = pytz.timezone('UTC')
     dates = [
         timezone.localize(datetime(2021, 1, 3)),
@@ -154,7 +154,7 @@ def five_transactions_by_period():
     return transactions
 
 
-def test_filter_transactions_by_period(five_transactions_by_period):
+def test_filter_transactions_by_period(four_transactions_by_period):
     transaction_service = TransactionService()
     transactions = transaction_service.filter_by_period(
         start_date='2021-02-01', end_date='2021-02-28'
