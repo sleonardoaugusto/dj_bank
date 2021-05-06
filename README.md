@@ -1,8 +1,8 @@
-# L'avocat
+# Dj Bank
 
-[![Tests](https://github.com/sleonardoaugusto/dj_bank/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/sleonardoaugusto/lavocat_backend/actions/workflows/ci-cd.yaml)
+[![Tests](https://github.com/sleonardoaugusto/dj_bank/actions/workflows/tests.yaml/badge.svg)](https://github.com/sleonardoaugusto/dj_bank/actions/workflows/tests.yaml)
 
-A lawyer clients system.
+A simple bank transactions system.
 
 ## How develop?
 

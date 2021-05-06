@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   app:
     container_name: dj_bank_app
@@ -18,16 +16,18 @@ services:
     restart: on-failure:10
   db:
     container_name: dj_bank_database
-    image: mysql:5.7
+    image: postgres:12.0-alpine
     ports:
-      - '3306:3306'
-    environment:
-      MYSQL_DATABASE: 'dj_bank'
-      MYSQL_USER: 'admin'
-      MYSQL_PASSWORD: 'root'
-      MYSQL_ROOT_PASSWORD: 'root'
+      - "5432:5432"
+    expose:
+      - 5432
     volumes:
-      - mysql_data:/var/lib/mysql
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'dj_bank_dev'
 
 volumes:
-  mysql_data:
+  postgres_data:
+
