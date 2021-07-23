@@ -22,6 +22,7 @@ class AccountCreate(GenericAPIView):
         customer = CustomerSerializer(required=True)
 
         class Meta:
+            ref_name = 'AccountCreate'
             model = Account
             fields = ('type', 'customer')
 
@@ -40,6 +41,7 @@ class AccountDeposit(GenericAPIView):
         amount = serializers.FloatField(required=True)
 
         class Meta:
+            ref_name = 'AccountDeposit'
             model = Account
             fields = ('amount',)
 
@@ -58,6 +60,7 @@ class AccountWithdraw(GenericAPIView):
         amount = serializers.FloatField(required=True)
 
         class Meta:
+            ref_name = 'AccountWithdraw'
             model = Account
             fields = ('amount',)
 
@@ -74,6 +77,7 @@ class AccountWithdraw(GenericAPIView):
 class AccountDetail(GenericAPIView):
     class OutputSerializer(serializers.ModelSerializer):
         class Meta:
+            ref_name = 'AccountDetail'
             model = Account
             fields = (
                 'customer',
@@ -101,6 +105,7 @@ class AccountBlock(APIView):
 class AccountTransactions(GenericAPIView):
     class OutputSerializer(serializers.ModelSerializer):
         class Meta:
+            ref_name = 'AccountTransaction'
             model = Transaction
             fields = (
                 'id',

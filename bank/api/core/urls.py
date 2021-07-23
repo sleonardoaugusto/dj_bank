@@ -9,7 +9,7 @@ from bank.api.core.views import (
     AccountTransactions,
 )
 
-accounts_patterns = [
+account_patterns = [
     path('', AccountCreate.as_view(), name='account-create'),
     path('<int:account>/', AccountDetail.as_view(), name='account-detail'),
     path('<int:account>/deposit/', AccountDeposit.as_view(), name='account-deposit'),
@@ -23,5 +23,5 @@ accounts_patterns = [
 ]
 
 urlpatterns = [
-    path('accounts/', include(accounts_patterns)),
+    path('accounts/', include(account_patterns)),
 ]

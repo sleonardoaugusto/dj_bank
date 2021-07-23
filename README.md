@@ -22,3 +22,7 @@ pip install -r requirements.txt
 cp contrib/env-sample .env
 pytest
 ```
+
+### Documentation
+
+http://localhost:8000/api/docs/
