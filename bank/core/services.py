@@ -20,6 +20,18 @@ class TransactionService:
         transaction.save()
         return transaction
 
+    def filter_by_account_or_period(self, *, request, account):
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
+        if start_date and end_date:
+            transactions = self.filter_by_period(
+                start_date=start_date[0],
+                end_date=end_date[0],
+            )
+        else:
+            transactions = self.filter_by_account(account=account)
+        return transactions
+
     def filter_by_account(self, *, account: int):
         return Transaction.objects.filter(account__pk=account)
 

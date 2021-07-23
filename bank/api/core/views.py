@@ -114,14 +114,8 @@ class AccountTransactions(GenericAPIView):
 
     def get(self, request, account):
         transaction_service = TransactionService()
-        start_date = request.query_params.get('start_date')
-        end_date = request.query_params.get('end_date')
-        if start_date and end_date:
-            transactions = transaction_service.filter_by_period(
-                start_date=start_date[0],
-                end_date=end_date[0],
-            )
-        else:
-            transactions = transaction_service.filter_by_account(account=account)
+        transactions = transaction_service.filter_by_account_or_period(
+            request=request, account=account
+        )
         data = self.serializer_class(transactions, many=True).data
         return Response(data, status=status.HTTP_200_OK)
