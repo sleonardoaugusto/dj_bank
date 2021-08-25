@@ -7,7 +7,7 @@ app_name = 'api'
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Lavocat API",
+        title="Dj Bank API",
         default_version='v1',
     ),
     public=True,
